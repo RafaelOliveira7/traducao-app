@@ -1,6 +1,6 @@
-import { Button, Grid, MenuItem, TextField } from '@mui/material';
+import { Grid, MenuItem } from '@mui/material';
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import React from 'react';
 import {
 	RoundedButton,
@@ -13,7 +13,6 @@ const Home = (): JSX.Element => {
 	const [targetLanguage, setTargetLanguage] = useState('');
 	const [inputText, setInputText] = useState('');
 	const [translatedText, setTranslatedText] = useState('');
-	const [translatedTextVision, setTranslatedTextVision] = useState('');
 
 	const handleTranslate = async () => {
 		try {
@@ -30,28 +29,6 @@ const Home = (): JSX.Element => {
 				const data = await response.json();
 				const translation = data.data.translations[0].translatedText;
 				setTranslatedText(translation);
-			} else {
-				console.error('Erro na tradução');
-			}
-		} catch (error) {
-			console.error('Erro na tradução:', error);
-		}
-	};
-
-	const handleTranslateVision = async (text: string) => {
-		try {
-			const response = await fetch(
-				`https://translation.googleapis.com/language/translate/v2?key=AIzaSyDPJI6giDF2c4zNXZWW59gGKWJuUrRfZ4c&q=${encodeURIComponent(
-					text
-				)}&source=${sourceLanguage}&target=${targetLanguage}`,
-				{
-					method: 'POST',
-				}
-			);
-			if (response.ok) {
-				const data = await response.json();
-				const translation = data.data.translations[0].translatedText;
-				setTranslatedTextVision(translation);
 			} else {
 				console.error('Erro na tradução');
 			}

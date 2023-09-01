@@ -1,8 +1,6 @@
-import { Button, Grid, MenuItem, TextField } from '@mui/material';
-import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
-import { useEffect, useState } from 'react';
+import { Grid, MenuItem } from '@mui/material';
+import { useState } from 'react';
 import React from 'react';
-import { MuiFileInput } from 'mui-file-input';
 import {
 	RoundedButton,
 	RoundedFileInput,
@@ -14,7 +12,6 @@ const ImageTranslate = (): JSX.Element => {
 	const [sourceLanguage, setSourceLanguage] = useState('');
 	const [targetLanguage, setTargetLanguage] = useState('');
 	const [inputTextVision, setInputTextVision] = useState('');
-	const [translatedText, setTranslatedText] = useState('');
 	const [translatedTextVision, setTranslatedTextVision] = useState('');
 	const [fileValue, setFileValue] = useState(null);
 
